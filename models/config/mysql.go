@@ -6,4 +6,5 @@ type MysqlCfg struct {
 	Username string `mapstructure:"username"`
 	Password string `mapstructure:"password"`
 	Database string `mapstructure:"database"`
+	CharSet  string `mapstructure:"charset"`
 }
