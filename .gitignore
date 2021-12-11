@@ -20,4 +20,5 @@ go.sum
 .idea
 # local config
 config/*
+## exclude sample file
 !config/config.sample.*.yaml
