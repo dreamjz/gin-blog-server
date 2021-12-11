@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"gin-blog-server/global"
 	"gin-blog-server/routers"
+	"log"
+	"syscall"
 
 	"github.com/fvbock/endless"
 	"github.com/gin-gonic/gin"
@@ -24,6 +26,10 @@ func Run() error {
 	router := initRouter()
 	addr := fmt.Sprintf(":%d", global.AppCfg.Server.Port)
 	server := endless.NewServer(addr, router)
+
+	server.BeforeBegin = func(addr string) {
+		log.Printf("Actual PID: %d,Addr: %s", syscall.Getpid(), addr)
+	}
 
 	srvCfg := global.AppCfg.Server
 	server.ReadTimeout = srvCfg.ReadTimeout
