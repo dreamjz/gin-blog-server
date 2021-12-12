@@ -1,0 +1,20 @@
+server:
+  port: 9090
+  readTimeout: 10s
+  readHeaderTimeout: 10ms
+  writeTimeout: 10s
+
+mysql:
+  host: localhost
+  port: 3306
+  username: user
+  password: pass
+  database: gin_blog
+  charset: utf8
+
+gorm:
+  tablePrefix: blog_
+  maxIdleConns: 10
+  maxOpenConns: 100
+  logLevel: info
+

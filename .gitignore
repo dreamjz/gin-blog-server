@@ -21,4 +21,4 @@ go.sum
 # local config
 config/*
 ## exclude sample file
-!config/config.sample.*.yaml
+!config/config.sample.*
