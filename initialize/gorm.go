@@ -6,6 +6,8 @@ import (
 	"gin-blog-server/global"
 	"log"
 
+	"gorm.io/gorm/logger"
+
 	"gorm.io/gorm/schema"
 
 	"gorm.io/driver/mysql"
@@ -20,6 +22,7 @@ func InitGorm() {
 		cfg.Username, cfg.Password, cfg.Host, cfg.Port, cfg.Database, cfg.CharSet,
 	)
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+		Logger: logger.Default.LogMode(logLevel()),
 		NamingStrategy: schema.NamingStrategy{
 			TablePrefix:   gormCfg.TablePrefix,
 			SingularTable: true,
@@ -32,4 +35,20 @@ func InitGorm() {
 	sqlDB.SetMaxIdleConns(gormCfg.MaxIdleConns)
 	sqlDB.SetMaxOpenConns(gormCfg.MaxOpenConns)
 	dao.Init(db)
+}
+
+func logLevel() logger.LogLevel {
+	lvl := global.AppCfg.GormCfg.LogLevel
+	switch lvl {
+	case "silent":
+		return logger.Silent
+	case "error":
+		return logger.Error
+	case "warn":
+		return logger.Warn
+	case "info":
+		return logger.Info
+	default:
+		return logger.Info
+	}
 }

@@ -7,11 +7,15 @@ import (
 )
 
 var (
-	db *gorm.DB
+	db            *gorm.DB
+	customSession *gorm.Session
 )
 
 func Init(gormDB *gorm.DB) {
 	db = gormDB
+	customSession = &gorm.Session{
+		QueryFields: true,
+	}
 }
 
 func GormDB() *gorm.DB {
