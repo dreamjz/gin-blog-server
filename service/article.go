@@ -56,8 +56,8 @@ func QueryArticleList(pagination request.Pagination) (response.PageResult, error
 	return result, nil
 }
 
-func QueryArticleContentByID(id uint) (*response.ArticleContent, error) {
-	content, err := dao.FindArticleContentByID(id)
+func QueryArticleByID(id uint) (*response.ArticleDetail, error) {
+	content, err := dao.FindArticleByID(id)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			log.Print("Article not found")

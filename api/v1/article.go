@@ -40,19 +40,19 @@ func QueryArticleList(c *gin.Context) {
 	response.OKWithData(list, c)
 }
 
-func QueryArticleContentByID(c *gin.Context) {
+func QueryArticleByID(c *gin.Context) {
 	id, err := cast.ToUintE(c.Query("id"))
 	if err != nil {
 		log.Print("Get article id error: ", err.Error())
 		response.FailWithMsg(err.Error(), c)
 		return
 	}
-	content, err := service.QueryArticleContentByID(id)
+	article, err := service.QueryArticleByID(id)
 	if err != nil {
 		response.FailWithMsg(err.Error(), c)
 		return
 	}
-	response.OKWithData(content, c)
+	response.OKWithData(article, c)
 }
 
 func EditArticleByID(c *gin.Context) {

@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `blog_article` (
     `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     `author` VARCHAR(100) NOT NULL COMMENT 'author',
     `title` VARCHAR(120) NOT NULL COMMENT 'title',
+    `summary` VARCHAR(120) COMMENT 'summary',
     `content` TEXT NOT NULL COMMENT 'article content',
     `importance` TINYINT DEFAULT 0 COMMENT 'importance',
     `status` TINYINT NOT NULL COMMENT 'status 0 draft 1 published',

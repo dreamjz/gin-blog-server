@@ -14,6 +14,14 @@ type ArticleListResult struct {
 	Status     int       `json:"status"`
 }
 
-type ArticleContent struct {
-	Content string `json:"content"`
+type ArticleDetail struct {
+	ID         uint      `json:"id"`
+	CreatedAt  time.Time `json:"createdAt"`
+	UpdatedAt  time.Time `json:"updatedAt"`
+	Author     string    `json:"author"`
+	Title      string    `json:"title" `
+	Summary    string    `json:"summary"`
+	Importance int       `json:"importance"`
+	Status     int       `json:"status"`
+	Content    string    `json:"content"`
 }

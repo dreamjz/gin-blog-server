@@ -11,7 +11,7 @@ func InitArticleRouter(routerGrp *gin.RouterGroup) {
 	{
 		articleRouter.POST("/create", v1.CreateArticle)
 		articleRouter.GET("/list", v1.QueryArticleList)
-		articleRouter.GET("/content", v1.QueryArticleContentByID)
+		articleRouter.GET("/detail", v1.QueryArticleByID)
 		articleRouter.PUT("/edit", v1.EditArticleByID)
 		articleRouter.DELETE("/delete", v1.DeleteArticleByID)
 	}

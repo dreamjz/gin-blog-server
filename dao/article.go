@@ -15,8 +15,8 @@ func FindArticleList(offset, limit int) ([]response.ArticleListResult, error) {
 	return articleList, err
 }
 
-func FindArticleContentByID(id uint) (*response.ArticleContent, error) {
-	var content response.ArticleContent
+func FindArticleByID(id uint) (*response.ArticleDetail, error) {
+	var content response.ArticleDetail
 	err := db.Model(&models.Article{}).Where("id = ?", id).Take(&content).Error
 	return &content, err
 }
