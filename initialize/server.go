@@ -3,7 +3,9 @@ package initialize
 import (
 	"fmt"
 	"gin-blog-server/global"
+	"gin-blog-server/middleware"
 	"gin-blog-server/routers"
+	"gin-blog-server/utils/validation"
 	"log"
 	"syscall"
 
@@ -14,10 +16,19 @@ import (
 func initRouter() *gin.Engine {
 	router := gin.Default()
 
+	router.Use(middleware.Cors())
+
 	publicGroup := router.Group("/")
 	{
 		routers.InitPublicRouter(publicGroup)
 	}
+
+	privateGroup := router.Group("/")
+	{
+		routers.InitArticleRouter(privateGroup)
+	}
+
+	validation.RegisterStructValidators()
 
 	return router
 }
