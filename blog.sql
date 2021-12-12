@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS `gin_blog` CHARSET utf8 COLLATE utf8_general_ci;
 USE `gin_blog`;
 
 -- User Auth Table
-CREATE TABLE IF NOT EXISTS `blog_auth` (
+CREATE TABLE IF NOT EXISTS `blog_user` (
   `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(100) DEFAULT '' COMMENT 'Username',
   `password` VARCHAR(100) DEFAULT '' COMMENT 'Password',
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `blog_auth` (
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT 'User auth table';
 
 -- Create user admin
-INSERT IGNORE INTO `blog_auth` (`username`,`password`,`created_at`) VALUES ('admin','admin',NOW());
+INSERT IGNORE INTO `blog_user` (`username`,`password`,`created_at`) VALUES ('admin','admin',NOW());
 
 -- Article Table
 CREATE TABLE IF NOT EXISTS `blog_article` (

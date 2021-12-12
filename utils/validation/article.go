@@ -8,10 +8,10 @@ import (
 
 func ArticleStructLevelValidation(sl validator.StructLevel) {
 	article := sl.Current().Interface().(models.Article)
-	if article.Status < 1 || article.Status > 2 {
+	if *article.Status < 0 || *article.Status > 1 {
 		sl.ReportError(article.Status, "Status", "Status", "status", "")
 	}
-	if article.Importance < 0 || article.Status > 3 {
+	if article.Importance < 1 || article.Importance > 7 {
 		sl.ReportError(article.Importance, "Importance", "Importance", "importance", "")
 	}
 }

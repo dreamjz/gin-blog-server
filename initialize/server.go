@@ -26,6 +26,7 @@ func initRouter() *gin.Engine {
 	privateGroup := router.Group("/")
 	{
 		routers.InitArticleRouter(privateGroup)
+		routers.InitUserRouter(privateGroup)
 	}
 
 	validation.RegisterStructValidators()

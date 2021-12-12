@@ -7,7 +7,7 @@ type Article struct {
 	Summary    string `json:"summary"`
 	Content    string `json:"content"   binding:"required"`
 	Importance int    `json:"importance"`
-	Status     int    `json:"status"    binding:"required"`
-	CreatedBy  string `json:"createdBy" binding:"required"`
+	Status     *int   `json:"status"    binding:"required"`
+	CreatedBy  string `json:"createdBy"`
 	UpdatedBy  string `json:"UpdatedBy"`
 }
