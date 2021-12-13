@@ -27,6 +27,7 @@ func initRouter() *gin.Engine {
 	{
 		routers.InitArticleRouter(privateGroup)
 		routers.InitUserRouter(privateGroup)
+		routers.InitSysInfoRouter(privateGroup)
 	}
 
 	validation.RegisterStructValidators()
