@@ -9,10 +9,10 @@ type Server struct {
 
 type OS struct {
 	GOOS         string `json:"goos"`
-	NumCPU       int    `json:"numCPU"`
+	NumCPU       int    `json:"numCpu"`
 	Compiler     string `json:"compiler"`
 	GoVersion    string `json:"goVersion"`
-	NumGoroutine int    `json:"NumGoroutine"`
+	NumGoroutine int    `json:"numGoroutine"`
 }
 
 type Cpu struct {
@@ -21,15 +21,15 @@ type Cpu struct {
 }
 
 type Ram struct {
-	UsedMiB     uint64 `json:"usedMiB"`
-	TotalMiB    uint64 `json:"totalMiB"`
-	UsedPercent uint64 `json:"usedPercent"`
+	UsedMiB     uint64  `json:"usedMiB"`
+	TotalMiB    uint64  `json:"totalMiB"`
+	UsedPercent float64 `json:"usedPercent"`
 }
 
 type Disk struct {
-	UsedMiB     uint64 `json:"usedMiB"`
-	UsedGiB     uint64 `json:"usedGiB"`
-	TotalMiB    uint64 `json:"totalMiB"`
-	TotalGiB    uint64 `json:"totalGiB"`
-	UsedPercent uint64 `json:"usedPercent"`
+	UsedMiB     uint64  `json:"usedMiB"`
+	UsedGiB     uint64  `json:"usedGiB"`
+	TotalMiB    uint64  `json:"totalMiB"`
+	TotalGiB    uint64  `json:"totalGiB"`
+	UsedPercent float64 `json:"usedPercent"`
 }

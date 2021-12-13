@@ -35,7 +35,7 @@ func CPUInfo() (*models.Cpu, error) {
 	if err != nil {
 		return nil, err
 	}
-	cores, err := cpu.Counts(true)
+	cores, err := cpu.Counts(false)
 	if err != nil {
 		return nil, err
 	}
@@ -52,8 +52,9 @@ func MemInfo() (*models.Ram, error) {
 		return nil, err
 	}
 	ram := models.Ram{
-		UsedMiB:  vm.Used >> MiB,
-		TotalMiB: vm.Total >> MiB,
+		UsedMiB:     vm.Used >> MiB,
+		TotalMiB:    vm.Total >> MiB,
+		UsedPercent: vm.UsedPercent,
 	}
 	return &ram, nil
 }
@@ -64,10 +65,11 @@ func DiskInfo() (*models.Disk, error) {
 		return nil, err
 	}
 	d := models.Disk{
-		UsedMiB:  usage.Used >> MiB,
-		UsedGiB:  usage.Used >> GiB,
-		TotalMiB: usage.Total >> GiB,
-		TotalGiB: usage.Total >> GiB,
+		UsedMiB:     usage.Used >> MiB,
+		UsedGiB:     usage.Used >> GiB,
+		TotalMiB:    usage.Total >> MiB,
+		TotalGiB:    usage.Total >> GiB,
+		UsedPercent: usage.UsedPercent,
 	}
 	return &d, nil
 }

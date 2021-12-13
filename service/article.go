@@ -40,7 +40,7 @@ func QueryArticleList(pagination request.Pagination) (response.PageResult, error
 	}
 	if total < 1 {
 		log.Print("No article found")
-		return result, ErrArticleNotFound
+		return result, nil
 	}
 	articleList, err := dao.FindArticleList(offset, limit)
 	if err != nil {
