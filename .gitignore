@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+bin/
 
 # Test binary, built with `go test -c`
 *.test
@@ -16,8 +17,10 @@
 
 # go sum
 go.sum
+
 # idea
 .idea
+
 # local config
 config/*
 ## exclude sample file
