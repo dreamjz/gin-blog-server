@@ -1,0 +1,8 @@
+# Local compile
+FROM scratch
+WORKDIR /app/config
+COPY ./bin/blog-app-server /app
+WORKDIR /app
+ENV APP_ENV=docker
+EXPOSE 9090
+ENTRYPOINT ["/app/blog-app-server"]
