@@ -6,7 +6,7 @@ FROM golang:alpine AS build-env
 ENV GOPROXY https://goproxy.cn,direct
 COPY . /app
 WORKDIR /app
-RUN go mod tidy && go mod download \
+RUN RUN apk update && apk add git && go mod tidy && go mod download \
     && CGO_ENABLED=0 GOOS=linux go build -o /blog-app-server
 
 #
