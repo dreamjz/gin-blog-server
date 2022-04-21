@@ -11,6 +11,7 @@ import (
 	"github.com/spf13/viper"
 )
 
+// InitViper 初始化 Viper 读取配置文件
 func InitViper() *viper.Viper {
 	v := viper.New()
 	// Get APP_ENV, default dev

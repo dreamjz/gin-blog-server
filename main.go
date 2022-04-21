@@ -8,9 +8,12 @@ import (
 )
 
 func main() {
+	// 初始化 Viper，读取配置文件
 	global.AppViper = initialize.InitViper()
 
+	// 初始化 Gorm
 	initialize.InitGorm()
+	// 手动关闭连接
 	sqlDB := dao.SqlDB()
 	defer sqlDB.Close()
 
